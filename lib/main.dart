@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:login_page/screens/auth_gate.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -9,90 +15,50 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage()
+    return MaterialApp(
+      title: 'Notes App',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        useMaterial3: true,
+      ),
+      home: StreamBuilder<firebase_auth.User?>(
+        stream: firebase_auth.FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const HomePage();
+          }
+          return const AuthGate();
+        },
+      ),
     );
   }
 }
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
-      body: Center(
-          child: Column(
-              children: [
-                const SizedBox(
-                  width: double.infinity,
-                  height: 100,
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 40, top: 40, right: 40.0, bottom: 20),
-                    child: Text('Login',
-                      style: TextStyle(
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 300,
-                  height: 50,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.person),
-                      labelText: 'Username',
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: double.infinity,
-                  height: 30.0,
-                ),
-                const SizedBox(
-                  width: 300.0,
-                  height: 50.0,
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.lock),
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                ),
-                SizedBox(
-                  width: 200.0,
-                  height:50.0,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      elevation: 0,
-                    ),
-                      onPressed: () {
-                        print('Hello');
-                      },
-                      child: const Text('login')),
-                ),
-              ]
-          )
+      appBar: AppBar(
+        title: const Text('Home'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              firebase_auth.FirebaseAuth.instance.signOut();
+            },
+          ),
+        ],
+      ),
+      body: const Center(
+        child: Text(
+          'Hello',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
