@@ -12,13 +12,8 @@ class AuthGate extends StatelessWidget {
         EmailAuthProvider(),
       ],
       headerBuilder: (context, constraints, _) {
-        return Padding(
-          padding: const EdgeInsets.all(20),
-          child: Icon(
-            Icons.note_alt_outlined,
-            size: 80,
-            color: Colors.purple[700],
-          ),
+        return const Padding(
+          padding: EdgeInsets.all(20)
         );
       },
       subtitleBuilder: (context, action) {
