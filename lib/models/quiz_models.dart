@@ -25,3 +25,37 @@ class Question{
     );
   }
 }
+
+class Quiz {
+  final String id;
+  final String title;
+  final String category;
+  final List<Question> questions;
+
+  Quiz({
+    required this.id,
+    required this.title,
+    required this.category,
+    required this.questions,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'category': category,
+      'questions': questions.map((q) => q.toMap()).toList(),
+    };
+  }
+
+  factory Quiz.fromMap(Map<String, dynamic> map) {
+    return Quiz(
+      id: map['id'],
+      title: map['title'],
+      category: map['category'],
+      questions: List<Question>.from(
+        map['questions']?.map((q) => Question.fromMap(q)),
+      ),
+    );
+  }
+}
