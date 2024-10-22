@@ -16,4 +16,12 @@ class Question{
       'correctAnswerIndex': correctAnswerIndex,
     };
   }
+
+  factory Question.fromMap(Map<String, dynamic> map){
+    return Question(
+      questionText: map['questionText'],
+      options: List<String>.from(map['options']),
+      correctAnswerIndex: map['correctAnswerIndex'],
+    );
+  }
 }
