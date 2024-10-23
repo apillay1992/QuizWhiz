@@ -59,3 +59,39 @@ class Quiz {
     );
   }
 }
+
+class QuizResult {
+  final String quizId;
+  final String userId;
+  final int score;
+  final int totalQuestions;
+  final DateTime timestamp;
+
+  QuizResult({
+    required this.quizId,
+    required this.userId,
+    required this.score,
+    required this.totalQuestions,
+    required this.timestamp,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'quizId': quizId,
+      'userId': userId,
+      'score': score,
+      'totalQuestions': totalQuestions,
+      'timestamp': timestamp.toIso8601String(),
+    };
+  }
+
+  factory QuizResult.fromMap(Map<String, dynamic> map) {
+    return QuizResult(
+      quizId: map['quizId'],
+      userId: map['userId'],
+      score: map['score'],
+      totalQuestions: map['totalQuestions'],
+      timestamp: DateTime.parse(map['timestamp']),
+    );
+  }
+}
