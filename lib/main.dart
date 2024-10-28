@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-
+import 'utils/quiz_uploader.dart';
 import 'screens/auth_gate.dart';
 import 'screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  //await QuizUploader.uploadSampleQuizzes();
   runApp(const MyApp());
 }
 

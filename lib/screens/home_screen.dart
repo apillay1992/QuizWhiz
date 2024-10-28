@@ -1,10 +1,10 @@
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:login_page/screens/quiz_screen.dart';
-
 import '../models/quiz_models.dart';
+import '../utils/quiz_uploader.dart';
+import 'quiz_screen.dart';
+import 'profile_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -103,6 +103,36 @@ class HomePage extends StatelessWidget {
           );
         },
       ),
+      // Add the DevTools button for development
+      floatingActionButton: const DevTools(),
+    );
+  }
+}
+
+// DevTools widget for uploading sample quizzes
+class DevTools extends StatelessWidget {
+  const DevTools({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () async {
+        try {
+          await QuizUploader.uploadSampleQuizzes();
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Quizzes uploaded successfully!')),
+            );
+          }
+        } catch (e) {
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Error uploading quizzes: $e')),
+            );
+          }
+        }
+      },
+      child: const Icon(Icons.upload),
     );
   }
 }
