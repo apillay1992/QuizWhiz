@@ -15,10 +15,12 @@ A modern, engaging quiz application built with Flutter and Firebase. QuizWhiz he
 ## 📱 Screenshots
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="screenshots/login.png" width="200" alt="Login Screen"/>
-  <img src="screenshots/home.png" width="200" alt="Home Screen"/>
-  <img src="screenshots/quiz.png" width="200" alt="Quiz Screen"/>
-  <img src="screenshots/results.png" width="200" alt="Results Screen"/>
+  <img src="assets/Sign_In.jpg" width="200" alt="Login Screen"/>
+  <img src="assets/Home_page.jpg" width="200" alt="Home Screen"/>
+  <img src="assets/Quizz_1.jpg" width="200" alt="Quiz Screen"/>
+  <img src="assets/Quizz_2.jpg" width="200" alt="Results Screen"/>
+  <img src="assets/Results.jpg" width="200" alt="Results Screen"/>
+  <img src="assets/User_profile.jpg" width="200" alt="Results Screen"/>
 </div>
 
 ## 🚀 Getting Started
