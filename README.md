@@ -1,16 +1,80 @@
-# login_page
+# 📚 QuizWhiz - Flutter Quiz App
 
-A new Flutter project.
+A modern, engaging quiz application built with Flutter and Firebase. QuizWhiz helps you test your knowledge across various subjects with an intuitive and beautiful interface.
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+- 🔐 **Secure Authentication** - Email/password authentication using Firebase Auth
+- 💾 **Cloud Storage** - All quizzes and results are stored in Firebase Cloud Firestore
+- 🎨 **Beautiful UI** - Clean, modern interface with Material Design 3
+- 📱 **Responsive Design** - Works seamlessly on both mobile and tablet devices
+- ✏️ **Quiz Categories** - Multiple subjects with varied questions
+- 🔍 **Quick Access** - Easy to start quizzes and track progress
+- 🌈 **Custom Theme** - Beautiful purple theme with consistent styling
 
-A few resources to get you started if this is your first Flutter project:
+## 📱 Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<div style="display: flex; justify-content: space-between;">
+  <img src="screenshots/login.png" width="200" alt="Login Screen"/>
+  <img src="screenshots/home.png" width="200" alt="Home Screen"/>
+  <img src="screenshots/quiz.png" width="200" alt="Quiz Screen"/>
+  <img src="screenshots/results.png" width="200" alt="Results Screen"/>
+</div>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Flutter** (2.0 or higher)
+- **Firebase account**
+- **Firebase CLI**
+
+### Installation
+
+#### Clone the repository
+
+```bash
+git clone https://github.com/@apillay1992/QuizWhiz.git
+Install dependencies
+bash
+Copy code
+flutter pub get
+Configure Firebase
+Create a new Firebase project.
+Enable Authentication and Cloud Firestore.
+Download and add your google-services.json (Android) and GoogleService-Info.plist (iOS).
+Update Firebase configuration in lib/firebase_options.dart.
+Run the app
+bash
+Copy code
+flutter run
+🏗️ Architecture
+The app follows a clean architecture pattern with:
+
+* **Models**: Data classes (e.g., QuizModel, QuestionModel)
+* **Screens**: UI components and logic
+* **Utils**: Helper functions and services
+* **Firebase** Integration: Backend services
+## 🛠️ Built With
+* Flutter - UI framework
+* Firebase - Backend and Authentication
+* Cloud Firestore - Database
+* Firebase Auth - Authentication
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📞 Contact
+Ashley Pillay - @apillay1992
+Project Link: https://github.com/apillay1992/QuizWhiz
