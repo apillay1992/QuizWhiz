@@ -33,30 +33,35 @@ A modern, engaging quiz application built with Flutter and Firebase. QuizWhiz he
 
 ### Installation
 
-#### Clone the repository
-
+1. Clone the repository
 ```bash
-git clone https://github.com/@apillay1992/QuizWhiz.git
-Install dependencies
-bash
-Copy code
+git clone https://github.com/apillay1992/QuizWhiz.git
+```
+
+2. Install dependencies
+```bash
 flutter pub get
-Configure Firebase
-Create a new Firebase project.
-Enable Authentication and Cloud Firestore.
-Download and add your google-services.json (Android) and GoogleService-Info.plist (iOS).
-Update Firebase configuration in lib/firebase_options.dart.
-Run the app
-bash
-Copy code
+```
+
+3. Configure Firebase
+    * Create a new Firebase project
+    * Enable Authentication and Cloud Firestore
+    * Download and add your `google-services.json` (Android) and `GoogleService-Info.plist` (iOS)
+    * Update Firebase configuration in `lib/firebase_options.dart`
+
+4. Run the app
+```bash
 flutter run
-🏗️ Architecture
+```
+
+## 🏗️ Architecture
 The app follows a clean architecture pattern with:
 
 * **Models**: Data classes (e.g., QuizModel, QuestionModel)
 * **Screens**: UI components and logic
 * **Utils**: Helper functions and services
 * **Firebase** Integration: Backend services
+
 ## 🛠️ Built With
 * Flutter - UI framework
 * Firebase - Backend and Authentication
