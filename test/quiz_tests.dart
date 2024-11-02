@@ -15,5 +15,21 @@ void main() {
       expect(question.options, ['3', '4', '5', '6']);
       expect(question.correctAnswerIndex, 1);
     });
+
+    test('converts Question to map correctly', () {
+      final question = Question(
+        questionText: 'What is 2+2?',
+        options: ['3', '4', '5', '6'],
+        correctAnswerIndex: 1,
+      );
+
+      final map = question.toMap();
+
+      expect(map['questionText'], 'What is 2+2?');
+      expect(map['options'], ['3', '4', '5', '6']);
+      expect(map['correctAnswerIndex'], 1);
+    });
+
+
   });
 }

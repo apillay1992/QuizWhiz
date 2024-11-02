@@ -11,7 +11,7 @@ class Question{
 
   Map<String, dynamic> toMap() {
     return {
-      'QuestionText' : questionText,
+      'questionText' : questionText,
       'options' : options,
       'correctAnswerIndex': correctAnswerIndex,
     };
