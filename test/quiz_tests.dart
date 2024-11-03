@@ -31,5 +31,20 @@ void main() {
     });
 
 
+    test('creates Question from map correctly', () {
+      final map = {
+        'questionText': 'What is 2+2?',
+        'options': ['3', '4', '5', '6'],
+        'correctAnswerIndex': 1,
+      };
+
+      final question = Question.fromMap(map);
+
+      expect(question.questionText, 'What is 2+2?');
+      expect(question.options, ['3', '4', '5', '6']);
+      expect(question.correctAnswerIndex, 1);
+    });
+
+
   });
 }
