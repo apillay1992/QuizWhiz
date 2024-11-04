@@ -44,7 +44,30 @@ void main() {
       expect(question.options, ['3', '4', '5', '6']);
       expect(question.correctAnswerIndex, 1);
     });
+  });
 
+  group('Quiz Model Tests', () {
+    test('creates Quiz instance correctly', () {
+      final questions = [
+        Question(
+          questionText: 'What is 2+2?',
+          options: ['3', '4', '5', '6'],
+          correctAnswerIndex: 1,
+        ),
+      ];
 
+      final quiz = Quiz(
+        id: '1',
+        title: 'Math Quiz',
+        category: 'Mathematics',
+        questions: questions,
+      );
+
+      expect(quiz.id, '1');
+      expect(quiz.title, 'Math Quiz');
+      expect(quiz.category, 'Mathematics');
+      expect(quiz.questions.length, 1);
+      expect(quiz.questions.first.questionText, 'What is 2+2?');
+    });
   });
 }
