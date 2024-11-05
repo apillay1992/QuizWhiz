@@ -69,5 +69,32 @@ void main() {
       expect(quiz.questions.length, 1);
       expect(quiz.questions.first.questionText, 'What is 2+2?');
     });
+
+    test('converts Quiz to map correctly', () {
+      final questions = [
+        Question(
+          questionText: 'What is 2+2?',
+          options: ['3', '4', '5', '6'],
+          correctAnswerIndex: 1,
+        ),
+      ];
+
+      final quiz = Quiz(
+        id: '1',
+        title: 'Math Quiz',
+        category: 'Mathematics',
+        questions: questions,
+      );
+
+      final map = quiz.toMap();
+
+      expect(map['id'], '1');
+      expect(map['title'], 'Math Quiz');
+      expect(map['category'], 'Mathematics');
+      expect(map['questions'].length, 1);
+    });
   });
+
+
+
 }
