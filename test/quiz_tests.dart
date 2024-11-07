@@ -93,7 +93,32 @@ void main() {
       expect(map['category'], 'Mathematics');
       expect(map['questions'].length, 1);
     });
-  });
+
+    test('creates Quiz from map correctly', () {
+      final map = {
+        'id': '1',
+        'title': 'Math Quiz',
+        'category': 'Mathematics',
+        'questions': [
+          {
+            'questionText': 'What is 2+2?',
+            'options': ['3', '4', '5', '6'],
+            'correctAnswerIndex': 1,
+          }
+        ],
+      };
+
+      final quiz = Quiz.fromMap(map);
+
+      expect(quiz.id, '1');
+      expect(quiz.title, 'Math Quiz');
+      expect(quiz.category, 'Mathematics');
+      expect(quiz.questions.length, 1);
+      expect(quiz.questions.first.questionText, 'What is 2+2?');
+    });
+
+
+});
 
 
 
