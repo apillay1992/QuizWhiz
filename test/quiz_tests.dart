@@ -154,8 +154,25 @@ void main() {
       expect(map['timestamp'], timestamp.toIso8601String());
     });
 
+    test('creates QuizResult from map correctly', () {
+      final timestamp = DateTime(2024, 1, 1);
+      final map = {
+        'quizId': '1',
+        'userId': 'user1',
+        'score': 8,
+        'totalQuestions': 10,
+        'timestamp': timestamp.toIso8601String(),
+      };
 
+      final result = QuizResult.fromMap(map);
+
+      expect(result.quizId, '1');
+      expect(result.userId, 'user1');
+      expect(result.score, 8);
+      expect(result.totalQuestions, 10);
+      expect(result.timestamp, timestamp);
+
+    });
   });
-
 
 }
